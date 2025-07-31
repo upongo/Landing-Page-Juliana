@@ -74,48 +74,30 @@ import Layout from '../layouts/Layout.astro';
 					<h2>Tudo o que você vai encontrar no #MINHAJUPERSONAL</h2>
 					<p>Metodologia comprovada em 3 passos simples</p>
 				</div>
-				<div class="features-grid">
-					<div class="feature-card">
-						<div class="feature-icon">
-							<div class="icon-circle">1</div>
-						</div>
+				<div class="features-grid-new">
+					<div class="feature-card-new orange">
 						<h3>Treinos para iniciantes ao avançado</h3>
-						<p>Programas adaptados para todos os níveis, desde quem está começando até atletas experientes</p>
+						<p>Programas adaptados para todos os níveis, desde quem está começando até atletas experientes, com progressão científica.</p>
 					</div>
-					<div class="feature-card">
-						<div class="feature-icon">
-							<div class="icon-circle">2</div>
-						</div>
-						<h3>Ganho de massa e emagrecimento</h3>
-						<p>Protocolos específicos para hipertrofia muscular e queima de gordura com resultados comprovados</p>
+					<div class="feature-card-new dark">
+						<h3>Ganho de massa</h3>
+						<p>Protocolos específicos para hipertrofia muscular com metodologia comprovada e resultados garantidos.</p>
 					</div>
-					<div class="feature-card">
-						<div class="feature-icon">
-							<div class="icon-circle">3</div>
-						</div>
-						<h3>Vídeos de mais de 200 exercícios</h3>
-						<p>Biblioteca completa com demonstrações detalhadas para execução perfeita dos movimentos</p>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon">
-							<div class="icon-circle">4</div>
-						</div>
+					<div class="feature-card-new black">
 						<h3>Emagrecimento</h3>
-						<p>Protocolos específicos para queima de gordura com resultados comprovados e sustentáveis</p>
+						<p>Estratégias eficazes para queima de gordura com acompanhamento nutricional e treinos direcionados.</p>
 					</div>
-					<div class="feature-card">
-						<div class="feature-icon">
-							<div class="icon-circle">5</div>
-						</div>
+					<div class="feature-card-new orange-light">
+						<h3>Vídeos de mais de 200 exercícios</h3>
+						<p>Biblioteca completa com demonstrações detalhadas para execução perfeita dos movimentos e técnicas.</p>
+					</div>
+					<div class="feature-card-new dark">
 						<h3>Acompanhamento diário via WhatsApp</h3>
-						<p>Suporte constante e personalizado para tirar dúvidas e manter a motivação em alta</p>
+						<p>Suporte constante e personalizado para tirar dúvidas, motivação e ajustes em tempo real.</p>
 					</div>
-					<div class="feature-card">
-						<div class="feature-icon">
-							<div class="icon-circle">6</div>
-						</div>
+					<div class="feature-card-new orange">
 						<h3>Ajuste mensal de treinos</h3>
-						<p>Evolução constante com modificações mensais baseadas no seu progresso e resultados</p>
+						<p>Evolução constante com modificações mensais baseadas no seu progresso e novos objetivos.</p>
 					</div>
 				</div>
 			</div>
@@ -752,6 +734,68 @@ import Layout from '../layouts/Layout.astro';
 		gap: 2rem;
 		position: relative;
 		z-index: 1;
+	}
+
+	/* New Features Grid Layout */
+	.features-grid-new {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 1.5rem;
+		position: relative;
+		z-index: 1;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.feature-card-new {
+		padding: 2.5rem 2rem;
+		border-radius: 16px;
+		color: white;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.15),
+			0 3px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.feature-card-new:hover {
+		transform: translateY(-8px) scale(1.02);
+		box-shadow: 
+			0 16px 48px rgba(0, 0, 0, 0.25),
+			0 6px 20px rgba(0, 0, 0, 0.15);
+	}
+
+	.feature-card-new.orange {
+		background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+	}
+
+	.feature-card-new.orange-light {
+		background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+	}
+
+	.feature-card-new.dark {
+		background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+	}
+
+	.feature-card-new.black {
+		background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+	}
+
+	.feature-card-new h3 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		line-height: 1.3;
+		color: white;
+	}
+
+	.feature-card-new p {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.9);
+		font-weight: 400;
 	}
 
 	.feature-card {
@@ -1506,6 +1550,16 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Responsive Design */
 	@media (max-width: 768px) {
+		.features-grid-new {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			gap: 1.5rem;
+		}
+
+		.feature-card-new {
+			padding: 2rem 1.5rem;
+		}
+
 		.hero-content {
 			grid-template-columns: 1fr;
 			text-align: center;
