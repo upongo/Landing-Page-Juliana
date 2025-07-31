@@ -103,6 +103,20 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
+		<!-- CTA Button after Features -->
+		<section class="features-cta">
+			<div class="container">
+				<div class="features-cta-content">
+					<h3>Tá esperando o que?</h3>
+					<a href="#planos" class="cta-button-link">
+						<button class="cta-button">
+							QUERO TREINAR!
+						</button>
+					</a>
+				</div>
+			</div>
+		</section>
+
 		<!-- Benefits Section -->
 		<section class="benefits">
 			<div class="container">
@@ -1659,6 +1673,46 @@ import Layout from '../layouts/Layout.astro';
 			width: 22px;
 			height: 22px;
 		}
+	}
+
+	/* Features CTA Section */
+	.features-cta {
+		padding: 60px 0;
+		background: 
+			linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.features-cta::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 30% 40%, rgba(255,255,255,0.02) 0%, transparent 50%),
+			radial-gradient(circle at 70% 80%, rgba(255,255,255,0.01) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.features-cta-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.features-cta h3 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		color: white;
+		margin-bottom: 2rem;
+		background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		letter-spacing: -0.02em;
 	}
 
 	@media (max-width: 480px) {
