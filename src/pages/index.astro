@@ -30,6 +30,14 @@ import Layout from '../layouts/Layout.astro';
 								QUERO RESULTADOS!
 							</button>
 						</a>
+						<div class="secondary-cta">
+							<p class="secondary-cta-text">Tá esperando o que?</p>
+							<a href="#planos" class="cta-button-link">
+								<button class="cta-button secondary">
+									QUERO TREINAR!
+								</button>
+							</a>
+						</div>
 						<div class="social-proof">
 							<div class="proof-item">
 								<span class="proof-number" data-target="700">700+</span>
@@ -525,6 +533,39 @@ import Layout from '../layouts/Layout.astro';
 
 	.cta-button:active {
 		transform: translateY(-1px);
+	}
+
+	.secondary-cta {
+		margin-top: 2rem;
+		text-align: center;
+	}
+
+	.secondary-cta-text {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 1rem;
+		letter-spacing: 0.025em;
+	}
+
+	.cta-button.secondary {
+		background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+		color: white;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(10px);
+		box-shadow: 
+			0 6px 20px rgba(0, 0, 0, 0.2),
+			0 2px 6px rgba(0, 0, 0, 0.1),
+			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+
+	.cta-button.secondary:hover {
+		background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+		border-color: rgba(255, 255, 255, 0.4);
+		box-shadow: 
+			0 10px 30px rgba(0, 0, 0, 0.3),
+			0 4px 12px rgba(0, 0, 0, 0.2),
+			inset 0 1px 0 rgba(255, 255, 255, 0.15);
 	}
 
 	.social-proof {
