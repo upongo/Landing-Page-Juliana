@@ -148,80 +148,15 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</div>
 					<div class="benefits-visual">
-						<div class="testimonials-carousel">
-							<div class="carousel-container">
-								<div class="carousel-track" id="carousel-track">
-									<!-- Depoimento 1 -->
-									<div class="testimonial-slide active">
-										<div class="testimonial-card">
-											<div class="testimonial-image">
-												<img src="/image.png" alt="Val Freitas" />
-											</div>
-											<div class="testimonial-content">
-												<p>"Treinar e me dedicar foi uma das melhores decisões que já tomei. Me sinto motivada cada dia mais e a evolução foi de dentro para fora! Fazer seus treinos tem feito toda a diferença na minha rotina e os resultados já estão aparecendo, isso me motiva ainda mais a continuar!"</p>
-												<div class="testimonial-author">
-													<span class="author-name">Val Freitas</span>
-												</div>
-											</div>
-										</div>
+						<div class="testimonial-card">
+							<div class="testimonial-content">
+								<p>"Em 3 meses perdi 12kg e ganhei muito mais disposição. O acompanhamento da Ju fez toda a diferença!"</p>
+								<div class="testimonial-author">
+									<div class="author-avatar"></div>
+									<div>
+										<span class="author-name">Maria Silva</span>
+										<span class="author-result">-12kg em 3 meses</span>
 									</div>
-									
-									<!-- Depoimento 2 -->
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-image">
-												<img src="/image copy.png" alt="Marcele Carvalho" />
-											</div>
-											<div class="testimonial-content">
-												<p>"Saúde é uma escolha diária! Um dia eu escolhi e busquei melhorar minha autoestima. E foi através da Ju que conheci a musculação, e com ela veio os resultados e benefícios! Não foi fácil, não é simples, mas ter um profissional da área a sua disposição te auxiliando, te motivando e mostrando que é possível de alcançar resultados, o processo ficou mais leve! A Ju me mostrou que desistir não era uma escolha, mas que buscar melhoria seria algo de grandes resultados, e que hoje são visíveis!"</p>
-												<div class="testimonial-author">
-													<span class="author-name">Marcele Carvalho</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<!-- Depoimento 3 -->
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-image">
-												<img src="/IMG_5901 (1).JPG" alt="Paula Martins" />
-											</div>
-											<div class="testimonial-content">
-												<p>"Nossa, Ju! Passando para te dar um feedback! Estou apaixonada pelos meus resultados. Sem dúvidas foi a melhor escolha que eu poderia ter feito. Tenho conseguido evoluir super bem nos treinos e meu corpo mudou muito! Obrigada por todo apoio! 😍"</p>
-												<div class="testimonial-author">
-													<span class="author-name">Paula Martins</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<!-- Depoimento 4 -->
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-image">
-												<img src="/image.png" alt="Adielly Quadra" />
-											</div>
-											<div class="testimonial-content">
-												<p>"Ju perdi mais de 12 quilos desde quando comecei com o treino e dieta, a uns 5 meses, mudei totalmente minha alimentação, fiz acompanhamento médico também e foquei 100% no seu treino que fez total diferença pra eu não ter flacidez e ter essa perda absurda de peso que mudou minha vida. Minha massa muscular aumentou muito ja que antes era só gordura, já consigo notar a diferença no meu corpo que está muito menor e com muito mais definição principalmente nas pernas e glúteo porque agora estou construindo a massa muscular. Você arrasa sempre! 😍✨ obrigada por tudo, e bora pra cima. ❤️🙌"</p>
-												<div class="testimonial-author">
-													<span class="author-name">Adielly Quadra</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<!-- Controles do carrossel -->
-								<button class="carousel-btn prev" id="prev-btn">‹</button>
-								<button class="carousel-btn next" id="next-btn">›</button>
-								
-								<!-- Indicadores -->
-								<div class="carousel-indicators">
-									<button class="indicator active" data-slide="0"></button>
-									<button class="indicator" data-slide="1"></button>
-									<button class="indicator" data-slide="2"></button>
-									<button class="indicator" data-slide="3"></button>
 								</div>
 							</div>
 						</div>
@@ -1075,167 +1010,78 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 	}
 
-	/* Carrossel de Depoimentos */
-	.testimonials-carousel {
-		width: 100%;
-		max-width: 450px;
-		margin: 0 auto;
-	}
-
-	.carousel-container {
-		position: relative;
-		overflow: hidden;
-		border-radius: 24px;
-		box-shadow: 
-			0 20px 40px rgba(0, 0, 0, 0.3),
-			0 8px 16px rgba(0, 0, 0, 0.2);
-	}
-
-	.carousel-track {
-		display: flex;
-		transition: transform 0.5s ease-in-out;
-		width: 400%;
-	}
-
-	.testimonial-slide {
-		width: 25%;
-		flex-shrink: 0;
-	}
-
-	.testimonial-slide .testimonial-card {
+	.testimonial-card {
 		background: 
 			linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%),
 			rgba(255,255,255,0.08);
 		backdrop-filter: blur(20px);
-		border-radius: 0;
-		padding: 1.5rem;
+		border-radius: 24px;
+		padding: 2rem;
 		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: none;
+		box-shadow: 
+			0 20px 40px rgba(0, 0, 0, 0.3),
+			0 8px 16px rgba(0, 0, 0, 0.2);
+		max-width: 400px;
 		width: 100%;
-		height: 400px;
-		display: flex;
-		flex-direction: column;
 		position: relative;
 		overflow: hidden;
 	}
 
-	.testimonial-image {
-		width: 80px;
-		height: 80px;
-		border-radius: 50%;
-		overflow: hidden;
-		margin: 0 auto 1rem;
-		border: 3px solid rgba(255, 255, 255, 0.3);
-	}
-
-	.testimonial-image img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.testimonial-slide .testimonial-card::before {
+	.testimonial-card::before {
 		content: '"';
 		position: absolute;
-		top: 10px;
-		left: 15px;
-		font-size: 3rem;
+		top: -10px;
+		left: 20px;
+		font-size: 4rem;
 		color: rgba(255, 255, 255, 0.2);
 		font-family: serif;
 		line-height: 1;
 	}
 
-	.testimonial-slide .testimonial-content {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-	}
-
-	.testimonial-slide .testimonial-content p {
-		font-size: 0.95rem;
+	.testimonial-content p {
+		font-size: 1.125rem;
 		line-height: 1.6;
-		margin-bottom: auto;
+		margin-bottom: 1.5rem;
 		color: rgba(255, 255, 255, 0.9);
 		font-style: italic;
-		flex: 1;
+	}
+
+	.testimonial-author {
 		display: flex;
 		align-items: center;
-		text-align: center;
+		gap: 1rem;
 	}
 
-	.testimonial-slide .testimonial-author {
-		margin-top: 1rem;
-		text-align: center;
-	}
-
-	.testimonial-slide .author-name {
+	.author-avatar {
+		width: 48px;
+		height: 48px;
+		background: linear-gradient(135deg, #ffffff, #f0f0f0);
+		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		font-size: 1.5rem;
+		color: #1a1a1a;
+		font-weight: 700;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.author-avatar::before {
+		content: '👤';
+	}
+
+	.author-name {
+		display: block;
 		font-weight: 600;
 		color: white;
-		font-size: 1rem;
+		margin-bottom: 0.25rem;
 	}
 
-	/* Controles do Carrossel */
-	.carousel-btn {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		background: rgba(255, 255, 255, 0.2);
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.3);
-		color: white;
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		cursor: pointer;
-		font-size: 1.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.3s ease;
-		z-index: 10;
-	}
-
-	.carousel-btn:hover {
-		background: rgba(255, 255, 255, 0.3);
-		transform: translateY(-50%) scale(1.1);
-	}
-
-	.carousel-btn.prev {
-		left: 10px;
-	}
-
-	.carousel-btn.next {
-		right: 10px;
-	}
-
-	/* Indicadores */
-	.carousel-indicators {
-		position: absolute;
-		bottom: 15px;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		gap: 8px;
-		z-index: 10;
-	}
-
-	.indicator {
-		width: 8px;
-		height: 8px;
-		border-radius: 50%;
-		border: none;
-		background: rgba(255, 255, 255, 0.4);
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
-
-	.indicator.active {
-		background: white;
-		transform: scale(1.2);
+	.author-result {
+		display: block;
+		font-size: 0.875rem;
+		color: #22c55e;
+		font-weight: 500;
 	}
 
 	/* Subscription Plans */
@@ -1753,18 +1599,22 @@ import Layout from '../layouts/Layout.astro';
 			text-align: center;
 		}
 
-		.benefit-item:hover {
-			transform: translateY(-4px);
+		.testimonials-carousel {
+			max-width: 100%;
+			margin: 0 1rem;
 		}
 
 		.testimonial-card {
-			max-width: 100%;
-			margin: 0 1rem;
 			padding: 1.5rem;
+			min-height: 250px;
 		}
 
 		.testimonial-content p {
 			font-size: 1rem;
+		}
+
+		.benefit-item:hover {
+			transform: translateY(-4px);
 		}
 
 		.features-grid {

@@ -127,24 +127,26 @@ const { title } = Astro.props;
 			// Iniciar animação dos números quando a página carregar
 			setTimeout(animateNumbers, 1000);
 
-			// Carrossel de Depoimentos
+			// Carrossel de depoimentos
 			let currentSlide = 0;
 			const slides = document.querySelectorAll('.testimonial-slide');
 			const indicators = document.querySelectorAll('.indicator');
-			const track = document.getElementById('carousel-track');
-			const prevBtn = document.getElementById('prev-btn');
-			const nextBtn = document.getElementById('next-btn');
+			const track = document.getElementById('testimonialTrack');
+			const prevBtn = document.getElementById('prevBtn');
+			const nextBtn = document.getElementById('nextBtn');
 			const totalSlides = slides.length;
 
 			function updateCarousel() {
-				// Mover o track
-				track.style.transform = `translateX(-${currentSlide * 25}%)`;
-				
+				// Atualizar posição do track
+				if (track) {
+					track.style.transform = `translateX(-${currentSlide * 25}%)`;
+				}
+
 				// Atualizar slides ativos
 				slides.forEach((slide, index) => {
 					slide.classList.toggle('active', index === currentSlide);
 				});
-				
+
 				// Atualizar indicadores
 				indicators.forEach((indicator, index) => {
 					indicator.classList.toggle('active', index === currentSlide);
@@ -161,11 +163,16 @@ const { title } = Astro.props;
 				updateCarousel();
 			}
 
-			// Event listeners
-			if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-			if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+			// Event listeners para navegação
+			if (nextBtn) {
+				nextBtn.addEventListener('click', nextSlide);
+			}
 
-			// Indicadores
+			if (prevBtn) {
+				prevBtn.addEventListener('click', prevSlide);
+			}
+
+			// Event listeners para indicadores
 			indicators.forEach((indicator, index) => {
 				indicator.addEventListener('click', () => {
 					currentSlide = index;
@@ -173,8 +180,11 @@ const { title } = Astro.props;
 				});
 			});
 
-			// Auto-play
+			// Auto-play do carrossel
 			setInterval(nextSlide, 5000);
+
+			// Inicializar carrossel
+			updateCarousel();
 		</script>
 	</body>
 </html>
