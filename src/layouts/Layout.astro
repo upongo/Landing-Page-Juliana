@@ -93,6 +93,39 @@ const { title } = Astro.props;
 					}, index * 1000);
 				});
 			}, 2000);
+
+			// Animação dos números
+			function animateNumbers() {
+				const numbers = document.querySelectorAll('.proof-number');
+				
+				const numberObserver = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							const element = entry.target;
+							const target = parseInt(element.getAttribute('data-target'));
+							const suffix = element.textContent.includes('kg') ? 'kg' : '+';
+							let current = 0;
+							const increment = target / 50;
+							const timer = setInterval(() => {
+								current += increment;
+								if (current >= target) {
+									current = target;
+									clearInterval(timer);
+								}
+								element.textContent = Math.floor(current) + suffix;
+							}, 40);
+							numberObserver.unobserve(element);
+						}
+					});
+				}, { threshold: 0.5 });
+
+				numbers.forEach(number => {
+					numberObserver.observe(number);
+				});
+			}
+
+			// Iniciar animação dos números quando a página carregar
+			setTimeout(animateNumbers, 1000);
 		</script>
 	</body>
 </html>
