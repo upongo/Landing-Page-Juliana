@@ -1170,6 +1170,62 @@
 		// Iniciar animação dos números quando a página carregar
 		setTimeout(animateNumbers, 1000);
 
+		// Carrossel de depoimentos (simplificado para 1 slide)
+		let currentSlide = 0;
+		const slides = document.querySelectorAll('.testimonial-slide');
+		const indicators = document.querySelectorAll('.indicator');
+		const track = document.getElementById('testimonialTrack');
+		const prevBtn = document.getElementById('prevBtn');
+		const nextBtn = document.getElementById('nextBtn');
+		const totalSlides = slides.length;
+
+		function updateCarousel() {
+			// Atualizar posição do track
+			if (track) {
+				track.style.transform = `translateX(-${currentSlide * 100}%)`;
+			}
+
+			// Atualizar slides ativos
+			slides.forEach((slide, index) => {
+				slide.classList.toggle('active', index === currentSlide);
+			});
+
+			// Atualizar indicadores
+			indicators.forEach((indicator, index) => {
+				indicator.classList.toggle('active', index === currentSlide);
+			});
+		}
+
+		function nextSlide() {
+			currentSlide = (currentSlide + 1) % totalSlides;
+			updateCarousel();
+		}
+
+		function prevSlide() {
+			currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+			updateCarousel();
+		}
+
+		// Event listeners para navegação
+		if (nextBtn) {
+			nextBtn.addEventListener('click', nextSlide);
+		}
+
+		if (prevBtn) {
+			prevBtn.addEventListener('click', prevSlide);
+		}
+
+		// Event listeners para indicadores
+		indicators.forEach((indicator, index) => {
+			indicator.addEventListener('click', () => {
+				currentSlide = index;
+				updateCarousel();
+			});
+		});
+
+		// Inicializar carrossel
+		updateCarousel();
+
 		// Modal de depoimentos
 		const modal = document.getElementById('testimonialModal');
 		const closeModal = document.getElementById('closeModal');
