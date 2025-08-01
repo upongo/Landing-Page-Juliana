@@ -148,72 +148,16 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</div>
 					<div class="benefits-visual">
-						<div class="testimonials-carousel">
-							<div class="carousel-container">
-								<div class="testimonials-track" id="testimonialTrack">
-									<div class="testimonial-slide active">
-										<div class="testimonial-card">
-											<div class="testimonial-content">
-												<p>"Em 3 meses perdi 12kg e ganhei muito mais disposição. O acompanhamento da Ju fez toda a diferença!"</p>
-												<div class="testimonial-author">
-													<div class="author-avatar">M</div>
-													<div>
-														<span class="author-name">Maria Silva</span>
-														<span class="author-result">-12kg em 3 meses</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-content">
-												<p>"Ganhei 8kg de massa muscular em 6 meses. Os treinos são desafiadores e os resultados incríveis!"</p>
-												<div class="testimonial-author">
-													<div class="author-avatar">J</div>
-													<div>
-														<span class="author-name">João Santos</span>
-														<span class="author-result">+8kg massa muscular</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-content">
-												<p>"A flexibilidade de treinar em casa mudou minha vida. Perdi 15kg sem sair de casa!"</p>
-												<div class="testimonial-author">
-													<div class="author-avatar">A</div>
-													<div>
-														<span class="author-name">Ana Costa</span>
-														<span class="author-result">-15kg em casa</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="testimonial-slide">
-										<div class="testimonial-card">
-											<div class="testimonial-content">
-												<p>"Aos 45 anos consegui a melhor forma da minha vida. O acompanhamento é excepcional!"</p>
-												<div class="testimonial-author">
-													<div class="author-avatar">R</div>
-													<div>
-														<span class="author-name">Roberto Lima</span>
-														<span class="author-result">Transformação aos 45</span>
-													</div>
-												</div>
-											</div>
-										</div>
+						<div class="testimonial-card">
+							<div class="testimonial-content">
+								<p>"Em 3 meses perdi 12kg e ganhei muito mais disposição. O acompanhamento da Ju fez toda a diferença!"</p>
+								<div class="testimonial-author">
+									<div class="author-avatar"></div>
+									<div>
+										<span class="author-name">Maria Silva</span>
+										<span class="author-result">-12kg em 3 meses</span>
 									</div>
 								</div>
-							</div>
-							<div class="carousel-indicators">
-								<button class="indicator active" data-slide="0"></button>
-								<button class="indicator" data-slide="1"></button>
-								<button class="indicator" data-slide="2"></button>
-								<button class="indicator" data-slide="3"></button>
 							</div>
 						</div>
 					</div>
@@ -1122,6 +1066,9 @@ import Layout from '../layouts/Layout.astro';
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 	}
 
+	.author-avatar::before {
+		content: '👤';
+	}
 
 	.author-name {
 		display: block;
@@ -1135,96 +1082,6 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 0.875rem;
 		color: #22c55e;
 		font-weight: 500;
-	}
-
-	/* Testimonials Carousel */
-	.testimonials-carousel {
-		max-width: 400px;
-		width: 100%;
-		position: relative;
-	}
-
-	.carousel-container {
-		position: relative;
-		overflow: hidden;
-		border-radius: 24px;
-	}
-
-	.testimonials-track {
-		display: flex;
-		transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-		width: 400%;
-	}
-
-	.testimonial-slide {
-		width: 25%;
-		flex-shrink: 0;
-		opacity: 0.7;
-		transition: opacity 0.5s ease;
-	}
-
-	.testimonial-slide.active {
-		opacity: 1;
-	}
-
-	.carousel-btn {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		background: rgba(255, 255, 255, 0.2);
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.3);
-		color: white;
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		font-size: 1.5rem;
-		font-weight: bold;
-		transition: all 0.3s ease;
-		z-index: 10;
-	}
-
-	.carousel-btn:hover {
-		background: rgba(255, 255, 255, 0.3);
-		transform: translateY(-50%) scale(1.1);
-	}
-
-	.carousel-btn.prev {
-		left: -20px;
-	}
-
-	.carousel-btn.next {
-		right: -20px;
-	}
-
-	.carousel-indicators {
-		display: flex;
-		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 1.5rem;
-	}
-
-	.indicator {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		border: none;
-		background: rgba(255, 255, 255, 0.3);
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
-
-	.indicator.active {
-		background: white;
-		transform: scale(1.2);
-	}
-
-	.indicator:hover {
-		background: rgba(255, 255, 255, 0.6);
 	}
 
 	/* Subscription Plans */
@@ -1742,18 +1599,18 @@ import Layout from '../layouts/Layout.astro';
 			text-align: center;
 		}
 
-		.carousel-btn.prev {
-			left: -15px;
+		.testimonials-carousel {
+			max-width: 100%;
+			margin: 0 1rem;
 		}
 
-		.carousel-btn.next {
-			right: -15px;
+		.testimonial-card {
+			padding: 1.5rem;
+			min-height: 250px;
 		}
 
-		.carousel-btn {
-			width: 36px;
-			height: 36px;
-			font-size: 1.25rem;
+		.testimonial-content p {
+			font-size: 1rem;
 		}
 
 		.benefit-item:hover {
@@ -1914,8 +1771,36 @@ import Layout from '../layouts/Layout.astro';
 			font-size: 1.1rem;
 		}
 
+		.testimonials-carousel {
+			max-width: 100%;
+			margin: 0 1rem;
+		}
+
+		.carousel-btn {
+			width: 40px;
+			height: 40px;
+		}
+
+		.carousel-btn.prev {
+			left: -20px;
+		}
+
+		.carousel-btn.next {
+			right: -20px;
+		}
+
+		.carousel-btn svg {
+			width: 16px;
+			height: 16px;
+		}
+
 		.testimonial-card {
 			padding: 1.25rem;
+			min-height: 250px;
+		}
+
+		.testimonial-content p {
+			font-size: 1rem;
 		}
 
 		.testimonial-card::before {
