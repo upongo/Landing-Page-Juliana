@@ -154,7 +154,7 @@ import Layout from '../layouts/Layout.astro';
 									<div class="testimonial-slide active">
 										<div class="testimonial-card" data-testimonial='{"name": "Val Freitas", "result": "Transformação completa", "image": "/valfreitas.jpg", "text": "Treinar e me dedicar foi uma das melhores decisões que já tomei. Me sinto motivada cada dia mais e a evolução foi de dentro para fora! Fazer seus treinos tem feito toda a diferença na minha rotina e os resultados já estão aparecendo, isso me motiva ainda mais a continuar!"}'>
 											<div class="testimonial-content">
-												<p>"Treinar e me dedicar foi uma das melhores decisões que já tomei. Me sinto motivada cada dia mais e a evolução foi de dentro para fora!"</p>
+												<p>"Treinar e me dedicar foi uma das melhores decisões que já tomei. Me sinto motivada cada dia mais e a evolução foi de dentro para fora! Fazer seus treinos tem feito toda a diferença na minha rotina e os resultados já estão aparecendo, isso me motiva ainda mais a continuar!"</p>
 												<div class="testimonial-author">
 													<img src="/valfreitas.jpg" alt="Val Freitas" class="author-photo" />
 													<div>
@@ -1098,15 +1098,6 @@ import Layout from '../layouts/Layout.astro';
 		width: 100%;
 		position: relative;
 		overflow: hidden;
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
-
-	.testimonial-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 
-			0 25px 50px rgba(0, 0, 0, 0.4),
-			0 12px 24px rgba(0, 0, 0, 0.3);
 	}
 
 	.testimonial-card::before {
@@ -1260,6 +1251,188 @@ import Layout from '../layouts/Layout.astro';
 
 	.indicator:hover {
 		background: rgba(255, 255, 255, 0.6);
+	}
+
+	/* Modal de Depoimentos */
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		backdrop-filter: blur(10px);
+		display: none;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+		padding: 20px;
+		animation: fadeIn 0.3s ease;
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	.modal-content {
+		background: white;
+		border-radius: 24px;
+		max-width: 800px;
+		width: 100%;
+		max-height: 90vh;
+		overflow-y: auto;
+		position: relative;
+		box-shadow: 
+			0 25px 50px rgba(0, 0, 0, 0.3),
+			0 10px 20px rgba(0, 0, 0, 0.2);
+		animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	@keyframes slideUp {
+		from { 
+			opacity: 0;
+			transform: translateY(30px) scale(0.95);
+		}
+		to { 
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	.modal-close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: rgba(0, 0, 0, 0.1);
+		border: none;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 24px;
+		color: #666;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		z-index: 10;
+	}
+
+	.modal-close:hover {
+		background: rgba(0, 0, 0, 0.15);
+		color: #333;
+		transform: scale(1.1);
+	}
+
+	.modal-body {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
+		padding: 3rem;
+		align-items: center;
+	}
+
+	.modal-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.modal-photo {
+		width: 100%;
+		max-width: 300px;
+		height: 300px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 20px;
+		box-shadow: 
+			0 20px 40px rgba(0, 0, 0, 0.2),
+			0 8px 16px rgba(0, 0, 0, 0.1);
+		border: 3px solid rgba(139, 69, 19, 0.1);
+	}
+
+	.modal-text {
+		color: #1a1a1a;
+	}
+
+	.modal-text h3 {
+		font-size: 2rem;
+		font-weight: 800;
+		margin-bottom: 0.5rem;
+		color: #8B4513;
+		letter-spacing: -0.01em;
+	}
+
+	.modal-text p {
+		font-size: 1.125rem;
+		color: #22c55e;
+		font-weight: 600;
+		margin-bottom: 2rem;
+	}
+
+	.modal-text blockquote {
+		font-size: 1.25rem;
+		line-height: 1.6;
+		color: #333;
+		font-style: italic;
+		position: relative;
+		padding-left: 2rem;
+		border-left: 4px solid #8B4513;
+		margin: 0;
+	}
+
+	.modal-text blockquote::before {
+		content: '"';
+		position: absolute;
+		top: -10px;
+		left: -10px;
+		font-size: 3rem;
+		color: rgba(139, 69, 19, 0.3);
+		font-family: serif;
+		line-height: 1;
+	}
+
+	/* Cursor pointer para cards clicáveis */
+	.testimonial-card {
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.testimonial-card:hover {
+		transform: scale(1.02);
+		box-shadow: 
+			0 25px 50px rgba(0, 0, 0, 0.4),
+			0 10px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	/* Responsivo para modal */
+	@media (max-width: 768px) {
+		.modal-body {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem;
+			text-align: center;
+		}
+
+		.modal-photo {
+			max-width: 250px;
+			height: 250px;
+		}
+
+		.modal-text h3 {
+			font-size: 1.75rem;
+		}
+
+		.modal-text blockquote {
+			font-size: 1.125rem;
+			padding-left: 1.5rem;
+		}
+
+		.modal-content {
+			margin: 20px;
+			max-height: 85vh;
+		}
 	}
 
 	/* Subscription Plans */
