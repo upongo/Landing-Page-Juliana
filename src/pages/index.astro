@@ -152,7 +152,7 @@ import Layout from '../layouts/Layout.astro';
 							<div class="carousel-container">
 								<div class="testimonials-track" id="testimonialTrack">
 									<div class="testimonial-slide active">
-										<div class="testimonial-card">
+										<div class="testimonial-card" data-testimonial='{"name": "Val Freitas", "result": "Transformação completa", "image": "/valfreitas.jpg", "text": "Treinar e me dedicar foi uma das melhores decisões que já tomei. Me sinto motivada cada dia mais e a evolução foi de dentro para fora! Fazer seus treinos tem feito toda a diferença na minha rotina e os resultados já estão aparecendo, isso me motiva ainda mais a continuar!"}'>
 											<div class="testimonial-content">
 												<p>"Treinar e me dedicar foi uma das melhores decisões que já tomei. Me sinto motivada cada dia mais e a evolução foi de dentro para fora! Fazer seus treinos tem feito toda a diferença na minha rotina e os resultados já estão aparecendo, isso me motiva ainda mais a continuar!"</p>
 												<div class="testimonial-author">
@@ -166,9 +166,9 @@ import Layout from '../layouts/Layout.astro';
 										</div>
 									</div>
 									<div class="testimonial-slide">
-										<div class="testimonial-card">
+										<div class="testimonial-card" data-testimonial='{"name": "João Santos", "result": "+8kg massa muscular", "image": "", "text": "Ganhei 8kg de massa muscular em 6 meses. Os treinos são desafiadores e os resultados incríveis! A metodologia da Juliana é realmente eficaz."}'>
 											<div class="testimonial-content">
-												<p>"Ganhei 8kg de massa muscular em 6 meses. Os treinos são desafiadores e os resultados incríveis!"</p>
+												<p>"Ganhei 8kg de massa muscular em 6 meses. Os treinos são desafiadores e os resultados incríveis! A metodologia da Juliana é realmente eficaz."</p>
 												<div class="testimonial-author">
 													<div class="author-avatar">J</div>
 													<div>
@@ -180,9 +180,9 @@ import Layout from '../layouts/Layout.astro';
 										</div>
 									</div>
 									<div class="testimonial-slide">
-										<div class="testimonial-card">
+										<div class="testimonial-card" data-testimonial='{"name": "Ana Costa", "result": "-15kg em casa", "image": "", "text": "A flexibilidade de treinar em casa mudou minha vida. Perdi 15kg sem sair de casa! Os treinos são práticos e eficientes, perfeitos para quem tem uma rotina corrida."}'>
 											<div class="testimonial-content">
-												<p>"A flexibilidade de treinar em casa mudou minha vida. Perdi 15kg sem sair de casa!"</p>
+												<p>"A flexibilidade de treinar em casa mudou minha vida. Perdi 15kg sem sair de casa! Os treinos são práticos e eficientes, perfeitos para quem tem uma rotina corrida."</p>
 												<div class="testimonial-author">
 													<div class="author-avatar">A</div>
 													<div>
@@ -194,9 +194,9 @@ import Layout from '../layouts/Layout.astro';
 										</div>
 									</div>
 									<div class="testimonial-slide">
-										<div class="testimonial-card">
+										<div class="testimonial-card" data-testimonial='{"name": "Roberto Lima", "result": "Transformação aos 45", "image": "", "text": "Aos 45 anos consegui a melhor forma da minha vida. O acompanhamento é excepcional! Nunca pensei que seria possível ter tanta energia e disposição nesta idade."}'>
 											<div class="testimonial-content">
-												<p>"Aos 45 anos consegui a melhor forma da minha vida. O acompanhamento é excepcional!"</p>
+												<p>"Aos 45 anos consegui a melhor forma da minha vida. O acompanhamento é excepcional! Nunca pensei que seria possível ter tanta energia e disposição nesta idade."</p>
 												<div class="testimonial-author">
 													<div class="author-avatar">R</div>
 													<div>
@@ -220,6 +220,23 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 		</section>
+
+		<!-- Modal para Depoimentos -->
+		<div id="testimonialModal" class="modal-overlay">
+			<div class="modal-content">
+				<button class="modal-close" id="closeModal">&times;</button>
+				<div class="modal-body">
+					<div class="modal-image">
+						<img id="modalImage" src="" alt="" class="modal-photo" />
+					</div>
+					<div class="modal-text">
+						<h3 id="modalName"></h3>
+						<p id="modalResult"></p>
+						<blockquote id="modalTestimonial"></blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!-- Subscription Plans -->
 		<section class="subscription-plans" id="planos">
