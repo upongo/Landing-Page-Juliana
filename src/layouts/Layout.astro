@@ -392,16 +392,14 @@ const { title } = Astro.props;
 	.modal-image {
 		display: flex;
 		justify-content: center;
+		overflow: hidden;
 	}
 
 	.modal-photo {
-		width: 300px;
-		height: 300px;
-		object-fit: contain;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 		object-position: center;
-		border-radius: 20px;
-		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-		background: #f8f9fa;
 	}
 
 	.modal-text {
